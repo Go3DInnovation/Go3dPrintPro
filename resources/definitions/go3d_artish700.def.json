@@ -15,8 +15,7 @@
         "has_variants": true,
         "machine_extruder_trains":
         {
-            "0": "go3d_500_extruder_left",
-            "1": "go3d_500_extruder_right"
+            "0": "go3d_500_extruder_left"
         },
         "nozzle_offsetting_for_disallowed_areas": false,
         "platform_offset": [
@@ -79,9 +78,9 @@
         "layer_start_x": { "value": "sum(extruderValues('machine_extruder_start_pos_x')) / len(extruderValues('machine_extruder_start_pos_x'))" },
         "layer_start_y": { "value": "sum(extruderValues('machine_extruder_start_pos_y')) / len(extruderValues('machine_extruder_start_pos_y'))" },
         "machine_acceleration": { "default_value": 3000 },
-        "machine_depth": { "default_value": 240 },
+        "machine_depth": { "default_value": 500 },
         "machine_end_gcode": { "default_value": "" },
-        "machine_extruder_count": { "default_value": 2 },
+        "machine_extruder_count": { "default_value": 1 },
         "machine_head_with_fans_polygon":
         {
             "default_value": [
@@ -93,23 +92,23 @@
         },
         "machine_heated_bed": { "default_value": true },
         "machine_heated_build_volume": { "default_value": false },
-        "machine_height": { "default_value": 300 },
+        "machine_height": { "default_value": 500 },
         "machine_max_acceleration_e": { "default_value": 2000 },
         "machine_max_feedrate_x": { "default_value": 125 },
         "machine_max_feedrate_y": { "default_value": 125 },
         "machine_max_feedrate_z": { "default_value": 40 },
         "machine_max_jerk_e": { "default_value": 2 },
         "machine_min_cool_heat_time_window": { "value": "15" },
-        "machine_name": { "default_value": "Ultimaker Factor 4" },
+        "machine_name": { "default_value": "Go3D Artish 700" },
         "machine_nozzle_cool_down_speed": { "value": "0.3 + 0.0025 * material_print_temperature" },
         "machine_nozzle_heat_up_speed": { "value": "2 - 0.0025 * material_print_temperature" },
         "machine_start_gcode": { "default_value": "" },
-        "machine_width": { "default_value": 330 },
+        "machine_width": { "default_value": 500 },
         "material_bed_temperature": { "maximum_value": "120" },
         "material_bed_temperature_layer_0": { "maximum_value": "120" },
         "material_final_print_temperature":
         {
-            "maximum_value": "340",
+            "maximum_value": "300",
             "value": "material_print_temperature"
         },
         "material_flow":
@@ -124,12 +123,12 @@
         },
         "material_initial_print_temperature":
         {
-            "maximum_value": "340",
+            "maximum_value": "300",
             "value": "material_print_temperature"
         },
         "material_print_temperature":
         {
-            "maximum_value": "340",
+            "maximum_value": "300",
             "value": "default_material_print_temperature"
         },
         "material_print_temperature_layer_0": { "maximum_value": "320" },

@@ -103,7 +103,7 @@
         "raft_surface_monotonic": { "value": true },
         "raft_surface_speed": { "value": "speed_topbottom" },
         "relative_extrusion": { "enabled": false },
-        "retraction_combing": { "value": "'no_outer_surfaces'" },
+        "retraction_combing": { "value": "'off'" },
         "retraction_combing_max_distance": { "value": 15 },
         "retraction_extrusion_window": { "value": 1 },
         "retraction_min_travel": { "value": 5 },
