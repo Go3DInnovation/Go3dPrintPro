@@ -157,7 +157,7 @@
         "retraction_hop_enabled": { "value": "True" },
         "retraction_hop_only_when_collides": { "value": "True" },
         "retraction_prime_speed": { "value": "10" },
-        "retraction_speed": { "value": "50" },
+        "retraction_speed": { "value": "45" },
         "roofing_material_flow":
         {
             "maximum_value": "100",
