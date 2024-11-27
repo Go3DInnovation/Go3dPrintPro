@@ -48,8 +48,8 @@ def generate_nsi(source_path: str, dist_path: str, filename: str):
         version_major = os.environ.get("CURA_VERSION_MAJOR"),
         version_minor = os.environ.get("CURA_VERSION_MINOR"),
         version_patch = os.environ.get("CURA_VERSION_PATCH"),
-        company = "UltiMaker",
-        web_site = "https://ultimaker.com",
+        company = "Go3D",
+        web_site = "https://go3d.in",
         year = datetime.now().year,
         cura_license_file = str(source_loc.joinpath("packaging", "cura_license.txt")),
         compression_method = "LZMA",  # ZLIB, BZIP2 or LZMA
