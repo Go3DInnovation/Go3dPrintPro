@@ -125,20 +125,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-conan-downloads-
             
-      - name: Checkout fdm_materials repo
-        uses: actions/checkout@v4
-        with:
-          repository: Go3DInnovation/fdm_materials 
-          ref: master
-          path: fdm_materials # Specifies the directory where the repo should be checked out
-      - name: Run Conan create command
-        run: |
-          conan create . fdm_materials/5.7.10@go3d/stable --build=missing
-        working-directory: fdm_materials
-        
-      - name: Create the local Package (Powershell)
-        run: |
-          conan create . local/test --build=missing --update -c tools.build:skip_test=True
+#      - name: Checkout fdm_materials repo
+#        uses: actions/checkout@v4
+#        with:
+#          repository: Go3DInnovation/fdm_materials
+#          ref: master
+#          path: fdm_materials # Specifies the directory where the repo should be checked out
+#      - name: Run Conan create command
+#        run: |
+#          conan create . fdm_materials/5.7.10@go3d/stable --build=missing
+#        working-directory: fdm_materials
+#
+#      - name: Create the local Package (Powershell)
+#        run: |
+#          conan create . local/test --build=missing --update -c tools.build:skip_test=True
 
       - name: Install the Packages (Powershell)
         run: |

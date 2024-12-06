@@ -1,5 +1,6 @@
 version: "5.7.2"
 requirements:
+  - "protobuf/3.21.9"
   - "uranium/5.7.2"
   - "curaengine/5.7.2"
   - "cura_binary_data/5.7.2"

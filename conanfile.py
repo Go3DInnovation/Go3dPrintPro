@@ -323,6 +323,7 @@ class CuraConan(ConanFile):
             del self.options.enable_i18n
 
     def configure(self):
+        self.requires("protobuf/3.21.9")
         self.options["pyarcus"].shared = True
         self.options["pysavitar"].shared = True
         self.options["pynest2d"].shared = True
@@ -343,6 +344,7 @@ class CuraConan(ConanFile):
             raise ConanInvalidConfiguration("Only versions 5+ are support")
 
     def requirements(self):
+        self.requires("protobuf/3.21.9")
         for req in self.conan_data["requirements"]:
             if self._internal and "fdm_materials" in req:
                 continue
@@ -355,7 +357,6 @@ class CuraConan(ConanFile):
         self.requires("cpython/3.10.4@ultimaker/stable")
         self.requires("clipper/6.4.2@ultimaker/stable")
         self.requires("openssl/3.2.0")
-        self.requires("protobuf/3.21.12")
         self.requires("boost/1.82.0")
         self.requires("spdlog/1.12.0")
         self.requires("fmt/10.1.1")
