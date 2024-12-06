@@ -1,4 +1,4 @@
 conan>=1.60.2,<2.0.0
-sip<=6.7.12
+sip>=6.8.1
 sentry-cli==2.21.2
-pyyaml
+passlib==1.7.4
