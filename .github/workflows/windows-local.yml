@@ -80,7 +80,7 @@ jobs:
           ref: ${{ github.base_ref }}
 
       - name: Sync pip requirements
-        run: curl -O https://raw.githubusercontent.com/Ultimaker/cura-workflows/main/.github/workflows/requirements-runner.txt
+        run: curl -O https://raw.githubusercontent.com/Go3DInnovation/cura-workflows/refs/heads/main/.github/workflows/requirements-runner.txt
         working-directory: .github\workflows
 
       - name: Setup Python and pip
