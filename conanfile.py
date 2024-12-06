@@ -181,8 +181,11 @@ class CuraConan(ConanFile):
                           env = "conanrun",
                           output = buffer)
 
+        buffer_content = buffer.getvalue()
+        print("DEBUG: Raw buffer content:", buffer_content)
+
         packages = str(buffer.getvalue()).split("-----------------\n")
-        print(packages)
+
         packages = packages[1].strip('\r\n').split(";")
         for package in packages:
             name, version = package.split(",")
