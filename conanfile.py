@@ -163,34 +163,51 @@ class CuraConan(ConanFile):
             }
         return conan_installs
 
+
     def _python_installs(self):
-        self.output.info("Collecting python installs")
+        self.output.info("Collecting Python installs")
         python_installs = {}
 
-        # list of python installs
+        # Set up the virtual environment
         run_env = VirtualRunEnv(self)
         env = run_env.environment()
         env.prepend_path("PYTHONPATH", str(self._site_packages.as_posix()))
-        venv_vars = env.vars(self, scope = "run")
+        venv_vars = env.vars(self, scope="run")
 
+        # Handle OS-specific quotation marks
         outer = '"' if self.settings.os == "Windows" else "'"
         inner = "'" if self.settings.os == "Windows" else '"'
+
         buffer = StringIO()
         with venv_vars.apply():
-            self.run(f"""python -c {outer}import pkg_resources;  print({inner};{inner}.join([(s.key+{inner},{inner}+ s.version) for s in pkg_resources.working_set])){outer}""",
-                          env = "conanrun",
-                          output = buffer)
+            command = (
+                f"""python -c {outer}import pkg_resources; """
+                f"""print({inner};{inner}.join([s.key + {inner},{inner} + s.version """
+                f"""for s in pkg_resources.working_set])){outer}"""
+            )
+            self.run(command, env="conanrun", output=buffer)
 
-        buffer_content = buffer.getvalue()
+        # Get the raw buffer content
+        buffer_content = buffer.getvalue().strip()
         print("DEBUG: Raw buffer content:", buffer_content)
 
-        packages = str(buffer.getvalue()).strip()
+        if not buffer_content:
+            self.output.warn("No Python packages found.")
+            return python_installs
 
-        packages = packages[1].strip('\r\n').split(";")
+        # Split packages and process each entry
+        packages = buffer_content.split(";")
         for package in packages:
-            name, version = package.split(",")
-            python_installs[name] = {"version": version}
+            if "," not in package:
+                self.output.warn(f"Skipping invalid package entry: '{package}'")
+                continue
+            try:
+                name, version = package.split(",", 1)  # Safely split into two parts
+                python_installs[name] = {"version": version}
+            except ValueError as e:
+                self.output.warn(f"Error parsing package entry '{package}': {e}")
 
+        print("DEBUG: Parsed Python installs:", python_installs)
         return python_installs
 
     def _generate_cura_version(self, location):
