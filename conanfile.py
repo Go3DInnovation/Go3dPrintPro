@@ -184,7 +184,7 @@ class CuraConan(ConanFile):
         buffer_content = buffer.getvalue()
         print("DEBUG: Raw buffer content:", buffer_content)
 
-        packages = str(buffer.getvalue()).split("-----------------\n")
+        packages = str(buffer.getvalue()).strip()
 
         packages = packages[1].strip('\r\n').split(";")
         for package in packages:
