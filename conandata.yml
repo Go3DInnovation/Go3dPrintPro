@@ -1,6 +1,6 @@
 version: "5.7.2"
 requirements:
-  - "uranium/5.7.0-alpha.1"
+  - "uranium/5.7.0-alpha.1@ultimaker/cura_11622"
   - "curaengine/5.7.2"
   - "cura_binary_data/5.7.2"
   - "fdm_materials/5.7.10@go3d/stable"
